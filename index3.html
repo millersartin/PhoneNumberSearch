@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Phone Search Tool</title>
+	<style>
+    body{
+      padding-top: 20px;
+      font-family:Arial, sans-serif;
+      margin:0;
+      padding:0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      min-height:100vh;
+      background-color:#f5f5f5}
+      header{
+        width: 600px;
+        background-color:#333;
+        color:#fff;
+        padding:20px;
+        text-align:center;
+        border-radius:10px 10px 10px 10px}
+      header h1{
+        margin:0;
+        font-size:36px;
+        letter-spacing:2px}
+      main{
+        margin:20px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        max-width:750px;
+        width:100%;
+        background-color:#fff;
+        box-shadow:0 0 10px rgba(0,0,0,0.1);
+        border-radius:10px 10px 10px 10px;
+        padding:40px}
+      form{
+        width:100%;
+        display:flex;
+        justify-content:space-between}
+      form label{
+        display:block;
+        font-size:18px;
+        margin-bottom:10px;
+        color:#333;
+        text-align:left;
+        margin-left:10px}
+      form input[type="text"]{
+        padding:10px;
+        font-size:16px;
+        border:none;
+        border-radius:5px;
+        width:30%;
+        background-color:#f5f5f5;
+        margin-right:20px}
+      form button{
+        background-color:#333;
+        color:#fff;
+        padding:10px 20px;
+        border:none;
+        border-radius:5px;
+        font-size:16px;
+        cursor:pointer;
+        transition:all 0.2s ease-in-out}
+      form button:hover{
+        background-color:#fff;
+        color:#333;
+        border:2px solid #333}
+      #search-result{
+        margin-top:20px;
+        text-align:center}
+      #search-result h2{
+        font-size:24px;
+        margin-bottom:10px;
+        letter-spacing:2px}
+      #search-result p{
+        font-size:18px;
+        color:#333;
+        margin:0;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis}
+      footer{
+        margin-top:40px;
+        text-align:center}
+      footer p{
+        color:#333;
+        font-size:14px;
+        margin:0}
+    </style>
+</head>
+<body>
+	<h1>Phone Search Tool</h1>
+	<form>
+		<label for="phone">Phone Number:</label>
+		<input type="tel" id="phone" name="phone">
+		<button type="button" onclick="fillForms()">Search</button>
+	</form>
+	<br>
+	<h2>Search Results:</h2>
+	<ul>
+		<li><a href="#" onclick="openSearch('https://google.com/search?q=' + document.getElementById('phone').value)">Google</a></li>
+		<li><a href="#" onclick="openSearch('https://www.whitepages.com/phone/' + document.getElementById('phone').value)">Whitepages</a></li>
+		<li><a href="#" onclick="openSearch('https://www.spydialer.com/search-detail/' + document.getElementById('phone').value)">Spy Dialer</a></li>
+	</ul>
+
+	<script>
+		function openSearch(url) {
+			window.open(url, '_blank');
+		}
+
+		function fillForms() {
+			var phone = document.getElementById('phone').value;
+			document.getElementById('google-phone').value = phone;
+			document.getElementById('whitepages-phone').value = phone;
+			document.getElementById('spydialer-phone').value = phone;
+		}
+	</script>
+
+	<h2>Google Phone Search Tool:</h2>
+	<form>
+		<label for="google-phone">Phone Number:</label>
+		<input type="tel" id="google-phone" name="phone">
+		<button type="button" onclick="openSearch('https://google.com/search?q=' + document.getElementById('google-phone').value)">Search</button>
+	</form>
+
+	<h2>Whitepages Phone Search Tool:</h2>
+	<form>
+		<label for="whitepages-phone">Phone Number:</label>
+		<input type="tel" id="whitepages-phone" name="phone">
+		<button type="button" onclick="openSearch('https://www.whitepages.com/phone/' + document.getElementById('whitepages-phone').value)">Search</button>
+	</form>
+
+	<h2>Spy Dialer Phone Search Tool:</h2>
+	<form>
+		<label for="spydialer-phone">Phone Number:</label>
+		<input type="tel" id="spydialer-phone" name="phone">
+		<button type="button" onclick="openSearch('https://www.spydialer.com/search-detail/' + document.getElementById('spydialer-phone').value)">Search</button>
+	</form>
+
+</body>
+</html>
